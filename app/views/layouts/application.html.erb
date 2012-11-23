@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Example application with SimpleForm and Twitter Bootstrap</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+  <header class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <a href="http://github.com/rafaelfranca/simple_form-bootstrap">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://www.google.co.in/imgres?imgurl=http://www.bugtreat.com/blog/wp-content/uploads/2012/07/images.jpg&imgrefurl=http://www.bugtreat.com/blog/html-tutorial-how-to-insert-images-in-html/&usg=__buQ3UVzLqANbJu91aVkpS1K6lBQ=&h=422&w=554&sz=35&hl=en&start=3&zoom=1&tbnid=_ruOuQ2EjL3wOM:&tbnh=101&tbnw=133&ei=zQ6tUNWVMYSNrgfRyoH4DQ&prev=/search%3Fq%3Dimages%26um%3D1%26hl%3Den%26sa%3DN%26tbo%3Dd%26rlz%3D1C1CHJX_enIN492IN492%26biw%3D1024%26bih%3D677%26tbm%3Disch&um=1&itbs=1" alt="Fork me on GitHub">
+      </a>
+      <div class="container">
+        <a class="brand" href="#">Plataformatec SimpleForm + Twitter Bootstrap</a>
+        <ul class="nav">
+          <li><%= link_to "Home", root_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle='dropdown'>
+              Articles
+              <b class='caret'></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "List all articles", articles_path %></li>
+              <li><%= link_to "New article", new_article_path %></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="container master-container">
+    <ul class="breadcrumb">
+      <%= yield :breadcrumb %>
+    </ul>
+    <div class='alert alert-info fade in' data-alert='alert'>
+      <a class="close" data-dismiss='alert' href="#">×</a>
+      <p>
+        <strong>
+          <a href="https://github.com/plataformatec/simple_form">SimpleForm</a> 2.0 and <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a> sample application.
+        </strong>
+      </p>
+      <p>Here you'll see the usage of <a href="https://github.com/plataformatec/simple_form">SimpleForm</a> and the <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a> toolkit on a Rails 3.2 application.</p>
+      <p>You can check the source code on <a href='https://github.com/rafaelfranca/simple_form-bootstrap'>GitHub</a>.</p>
+
+    </div>
+
+    <% if notice %>
+      <div class="alert alert-success fade in" data-alert="alert">
+        <a class="close" data-dismiss='alert' href="#">×</a>
+        <p><%= notice %></p>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </div>
+  <footer class="container">
+    Copyright 2012 <a href="http://www.plataformatec.com.br">Plataformatec</a>
+  </footer>
+  <%= javascript_include_tag "application" %>
+</body>
+</html>
